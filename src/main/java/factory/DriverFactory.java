@@ -13,6 +13,9 @@ public class DriverFactory {
 
         switch (browser){
             case "yandex":
+
+                System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\chromedriver-win64\\chromedriver.exe");
+
                 String yandexPath = "C:\\Program Files\\Yandex\\YandexBrowser\\Application\\browser.exe";
                 options.setBinary(yandexPath);
                 return new ChromeDriver(options);
