@@ -30,6 +30,16 @@ public class UserApiClient {
                 .delete("/api/auth/user");
     }
 
+    @Step("Авторизоваться пользователем")
+    public Response login(User user) {
+        return given()
+                .contentType(ContentType.JSON)
+                .baseUri(BASE_URL)
+                .body(user)
+                .when()
+                .post("/api/auth/login");
+    }
+
     public String getAccessToken(Response response) {
         return response.path("accessToken");
     }
