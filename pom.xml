@@ -14,11 +14,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <aspectj.version>1.9.7</aspectj.version>
-
+        <selenium.version>4.18.1</selenium.version>
         <allure.version>2.24.0</allure.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
