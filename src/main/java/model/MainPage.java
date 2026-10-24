@@ -55,8 +55,8 @@ public class MainPage  {
     }
 
     public boolean isBunTabActive() {
-        String classAttribute = driver.findElement(bunTab).getAttribute("class");
-        return classAttribute.contains("current");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        return wait.until(driver -> driver.findElement(bunTab).getAttribute("class").contains("current"));
     }
 
     public boolean isSauceTabActive() {
