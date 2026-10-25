@@ -11,21 +11,15 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 import user.User;
 import user.UserApiClient;
-
-import java.time.Duration;
 
 public class LoginTest extends BaseTest{
 
     private UserApiClient userApiClient;
     private User user;
     private String accessToken;
-
-    private final By orderButton = By.xpath(".//button[text()='Оформить заказ']");
 
     @Before
     public void setUpUser() {
@@ -50,10 +44,8 @@ public class LoginTest extends BaseTest{
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        boolean isOrderButtonDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton)).isDisplayed();
 
-        Assert.assertTrue("Не выполнен вход в приложуху", isOrderButtonDisplayed);
+        Assert.assertTrue("Не выполнен вход в приложуху", mainPage.isOrderButtonDisplayed());
     }
 
     @Test
@@ -65,10 +57,7 @@ public class LoginTest extends BaseTest{
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(user.getEmail(), user.getPassword());
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        boolean isOrderButtonDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton)).isDisplayed();
-
-        Assert.assertTrue("Не выполнен вход в приложуху", isOrderButtonDisplayed);
+        Assert.assertTrue("Не выполнен вход в приложуху", mainPage.isOrderButtonDisplayed());
     }
 
     @Test
@@ -85,10 +74,7 @@ public class LoginTest extends BaseTest{
 
         loginPage.login(user.getEmail(), user.getPassword());
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        boolean isOrderButtonDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton)).isDisplayed();
-
-        Assert.assertTrue("Не выполнен вход в приложуху", isOrderButtonDisplayed);
+        Assert.assertTrue("Не выполнен вход в приложуху", mainPage.isOrderButtonDisplayed());
     }
 
     @Test
@@ -105,10 +91,7 @@ public class LoginTest extends BaseTest{
 
         loginPage.login(user.getEmail(), user.getPassword());
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        boolean isOrderButtonDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(orderButton)).isDisplayed();
-
-        Assert.assertTrue("Не выполнен вход в приложуху", isOrderButtonDisplayed);
+        Assert.assertTrue("Не выполнен вход в приложуху", mainPage.isOrderButtonDisplayed());
     }
 
     @After

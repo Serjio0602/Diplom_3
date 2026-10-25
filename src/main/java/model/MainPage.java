@@ -18,6 +18,8 @@ public class MainPage  {
     private final By sauceTab = By.xpath(".//span[text()='Соусы']/parent::div");
     private final By fillingTab = By.xpath(".//span[text()='Начинки']/parent::div");
 
+    private final By orderButton = By.xpath(".//button[text()='Оформить заказ']");
+
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -76,5 +78,12 @@ public class MainPage  {
     public boolean isFillingTabActive() {
         String classAttribute = driver.findElement(fillingTab).getAttribute("class");
         return classAttribute.contains("current");
+    }
+
+    @Step("Проверить, что отображается кнопка «Оформить заказ»")
+    public boolean isOrderButtonDisplayed() {
+        return new WebDriverWait (driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(orderButton))
+                .isDisplayed();
     }
 }
